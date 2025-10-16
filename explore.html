@@ -1,0 +1,371 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Booknook by SAM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('bg.jpg') center/cover no-repeat;
+      color: #333;
+      margin: 0;
+    }
+
+    header {
+      background: #e5eaff;
+      padding: 20px 0;
+      border-bottom: 2px solid #341539;
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    header img {
+      position: absolute;
+      left: 20px;
+      height: 65px;
+    }
+
+    nav {
+      background: #e5eaff;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-weight: 600;
+      border-bottom: 1px solid #e0d3ea;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    nav a:hover {
+      color: #0077cc;
+    }
+
+    footer {
+      background: #e5eaff;
+      color: #555;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    footer .column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+
+    footer a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      background: white;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    select, input[type="checkbox"] {
+      margin: 10px 0;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    button {
+      background: #576bbb;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      margin-top: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button:hover {
+      background: #3f4fa1;
+    }
+
+    #results {
+      margin-top: 30px;
+    }
+
+    .info {
+      font-style: italic;
+      color: #666;
+    }
+
+    .book-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .book-item img {
+      width: 60px;
+      height: 90px;
+      object-fit: cover;
+      margin-right: 15px;
+      border-radius: 4px;
+    }
+    .book-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  background: #f6f7ff;
+  padding: 15px;
+  border-radius: 8px;
+  gap: 15px;
+}
+
+.book-item img {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.book-card {
+  background: #f8f9ff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+}
+
+.book-card img {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.book-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.book-author {
+  color: #555;
+  font-size: 0.85rem;
+  margin: 5px 0;
+}
+
+.book-meta {
+  font-size: 0.75rem;
+  color: #777;
+}
+.amazon-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #b4c1f1;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.amazon-btn:hover {
+  background-color: #acb7e0;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="thebooknook.html">
+      <img src="logo.png" alt="The BookNook Logo">
+    </a>
+    The BookNook by SAM
+  </header>
+
+  <nav>
+    <a href="thebooknook.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore.html">Pick your book</a>
+    <a href="ourcollection.html">Our Collection</a>
+    <a href="contact-NPS53.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <label for="audience">Choose your audience:</label>
+    <select id="audience">
+      <option>All Ages</option>
+      <option>Kids</option>
+      <option>Middle Grade</option>
+      <option>Young Adult</option>
+      <option>Adults</option>
+    </select>
+
+    <label>Pick your genres:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="genre" value="Fantasy"> Fantasy</label>
+      <label><input type="checkbox" name="genre" value="Adventure"> Adventure</label>
+      <label><input type="checkbox" name="genre" value="Dystopian"> Dystopian</label>
+      <label><input type="checkbox" name="genre" value="Drama"> Drama</label>
+      <label><input type="checkbox" name="genre" value="Romance"> Romance</label>
+      <label><input type="checkbox" name="genre" value="Science Fiction"> Science Fiction</label>
+      <label><input type="checkbox" name="genre" value="Coming-of-Age"> Coming-of-Age</label>
+      <label><input type="checkbox" name="genre" value="Mythology"> Mythology</label>
+      <label><input type="checkbox" name="genre" value="Comedy"> Comedy</label>
+      <label><input type="checkbox" name="genre" value="Thriller"> Thriller</label>
+      <label><input type="checkbox" name="genre" value="Horror"> Horror</label>
+      <label><input type="checkbox" name="genre" value="Magical Realism"> Magical Realism</label>
+      <label><input type="checkbox" name="genre" value="Mystery"> Mystery</label>
+      <label><input type="checkbox" name="genre" value="Classic"> Classic</label>
+      <label><input type="checkbox" name="genre" value="Realistic Fiction"> Realistic Fiction</label>
+      <label><input type="checkbox" name="genre" value="Fiction"> Fiction</label>
+      <label><input type="checkbox" name="genre" value="Historical"> Historical</label>
+      <label><input type="checkbox" name="genre" value="Non-fiction"> Non-fiction</label>
+      <label><input type="checkbox" name="genre" value="Humor"> Humor</label>
+    </div>
+
+    <label for="time">Preferred time period:</label>
+    <select id="time">
+      <option>Any</option>
+      <option>Contemporary</option>
+      <option>Historical</option>
+      <option>Futuristic</option>
+      <option>Timeless</option>
+    </select>
+    <br>
+    <button onclick="recommendBooks()">Recommend</button>
+    <button id="show-more-btn" onclick="showMoreBooks()" style="margin-left: 10px; display: none;">Show More</button>
+
+    <div id="book-list"></div>
+
+    <div id="results"></div>
+  </div>
+
+<script>
+  let allBooks = [];
+  let displayIndex = 0;
+
+  async function recommendBooks() {
+    const audience = document.getElementById("audience").value;
+    const selectedGenres = Array.from(document.querySelectorAll('input[name="genre"]:checked')).map(cb => cb.value.toLowerCase());
+    const time = document.getElementById("time").value;
+
+    const params = new URLSearchParams();
+    if (audience !== "All Ages") params.append("audience", audience.toLowerCase());
+    if (selectedGenres.length > 0) params.append("genres", selectedGenres.join(","));
+    if (time !== "Any") params.append("time", time.toLowerCase());
+
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzxIb-ygqUqxC8RBk2xUSaJ4Nckl9ANlp5BXeUrZoxeI2KnCEjA2qrxtoO8PL4JIOIe/exec?" + params.toString());
+    allBooks = await response.json();
+    displayIndex = 0;
+
+    const bookList = document.getElementById("book-list");
+    bookList.innerHTML = "";
+
+    if (allBooks.length === 0) {
+      bookList.innerHTML = "<p>No matching books found.</p>";
+      document.getElementById("show-more-btn").style.display = "none";
+    } else {
+      showMoreBooks();
+      document.getElementById("show-more-btn").style.display = "inline-block";
+    }
+  }
+
+  function showMoreBooks() {
+    const bookList = document.getElementById("book-list");
+
+    // First time: create the grid container
+    if (displayIndex === 0) {
+      bookList.innerHTML = '<div class="book-grid" id="grid-wrapper"></div>';
+    }
+
+    const gridWrapper = document.getElementById("grid-wrapper");
+    const booksToShow = allBooks.slice(displayIndex, displayIndex + 4);
+
+    booksToShow.forEach(book => {
+      const div = document.createElement("div");
+      div.classList.add("book-card");
+      div.innerHTML = `
+        <img src="${book.cover}" alt="${book.title}">
+        <div class="book-title">${book.title}</div>
+        <div class="book-author">by ${book.author}</div>
+        <div class="book-meta">${book.genres.join(", ")} • ${book.audience.join(", ")}</div>
+        <a href="${book.amazon}" target="_blank" class="amazon-btn">Buy on Amazon</a>
+      `;
+      gridWrapper.appendChild(div);
+    });
+
+    displayIndex += 4;
+
+    if (displayIndex >= allBooks.length) {
+      document.getElementById("show-more-btn").style.display = "none";
+    }
+  }
+</script>
+
+
+
+
+  <footer>
+    <div class="column">
+      <strong>Contact Us</strong><br>
+      123‑456‑7890<br>
+      <a href="mailto:samcompsc10@gmail.com">samcompsc10@gmail.com</a><br>
+      NPS INR, Indiranagar<br>
+      Bangalore, KA 560038
+    </div>
+    <div class="column">
+      <strong>Policy</strong><br>
+      <a href="#">Privacy Policy</a><br>
+      <a href="#">Accessibility Statement</a><br>
+      <a href="#">Terms & Conditions</a><br>
+    </div>
+    <div class="column">
+      © 2025 The Booknook<br>
+    </div>
+  </footer>
+</body>
+</html>

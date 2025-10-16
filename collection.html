@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Booknook by SAM – Our Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      background: #fff;
+    }
+    header {
+      background: #e5eaff;
+      padding: 20px 0;
+      border-bottom: 2px solid #341539;
+      font-family: 'Lora', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    header img {
+      position: absolute;
+      left: 20px;
+      height: 65px;
+    }
+    header .header-inner {
+      font-size: 3rem;
+      text-align: center;
+    }
+    nav {
+      background: #e5eaff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-weight: 600;
+      border-bottom: 1px solid #e0d3ea;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 10px;
+    }
+    nav a:hover {
+      color: #0077cc;
+    }
+    .book-section {
+      background-color: #e5eaff;
+      padding: 60px 20px;
+    }
+    .book-section h2 {
+      font-family: 'Lora', serif;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .debug-box {
+      font-size: 0.8rem;
+      background: #fff4d6;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 0 auto 20px;
+      max-width: 600px;
+      border-radius: 8px;
+      color: #444;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .book-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .book-card:hover {
+      transform: scale(1.03);
+    }
+    .book-card h3 {
+      font-size: 1.2rem;
+      margin: 10px 0 5px;
+      color: #341539;
+    }
+    .book-card p {
+      margin: 5px 0;
+      color: #666;
+    }
+    .book-card a {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #0077cc;
+      text-decoration: none;
+    }
+    .book-card a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #e5eaff;
+      color: #555;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    footer .column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+    footer a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="thebooknook.html">
+    <img src="logo.png" alt="The BookNook Logo">
+  </a>
+  <div class="header-inner">The BookNook</div>
+</header>
+
+<nav>
+  <a href="thebooknook.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="explore.html">Pick your book</a>
+  <a href="ourcollection.html">Our Collection</a>
+  <a href="contact-NPS53.html">Contact</a>
+</nav>
+
+<section class="book-section">
+  <h2>Our Book Collection</h2>
+  <div id="debugBox" class="debug-box" style="display:none;"></div>
+  <div class="book-grid" id="bookGrid">
+    <p style="text-align:center; color:#666;">Loading books...</p>
+  </div>
+</section>
+
+<script>
+  const url = "https://script.google.com/macros/s/AKfycbzxIb-ygqUqxC8RBk2xUSaJ4Nckl9ANlp5BXeUrZoxeI2KnCEjA2qrxtoO8PL4JIOIe/exec";
+
+  fetch(url)
+    .then(res => res.json()) 
+    .then(data => {
+      if (data && data.data) {
+        data = data.data;
+      }
+
+      const bookGrid = document.getElementById("bookGrid");
+      bookGrid.innerHTML = "";
+
+      if (!Array.isArray(data) || data.length === 0) {
+        bookGrid.innerHTML = "<p style='text-align:center;'>No books found.</p>";
+        return;
+      }
+
+      // Filter out empty rows
+      const filtered = data.filter(book => book.title && book.author);
+
+      // Render only valid books
+      filtered.forEach(book => {
+        const card = document.createElement("div");
+        card.className = "book-card";
+        card.innerHTML = `
+          ${book.cover ? `<img src="${book.cover}" alt="${book.title}" style="max-width:100%; border-radius:8px; margin-bottom:10px;">` : ""}
+          <h3>${book.title || ""}</h3>
+          <p><em>${book.author || ""}</em></p>
+          <p><strong>Genre: </strong> ${(book.genres || []).join(", ")}</p>
+          <p><strong>Audience:</strong> ${(book.audience || []).join(", ")}</p>
+          <p><strong>Time:</strong> ${book.time || ""}</p>
+          ${book.amazon ? `<a href="${book.amazon}" target="_blank" rel="noopener">Buy on Amazon</a>` : ""}
+        `;
+        bookGrid.appendChild(card);
+      });
+    })
+    .catch(error => {
+      console.error("Error loading book data:", error);
+      document.getElementById("bookGrid").innerHTML = "<p style='text-align:center;'>Unable to load books.</p>";
+    });
+</script>
+
+
+<footer>
+  <div class="column">
+    <strong>Contact Us</strong><br>
+    123-456-7890<br>
+    <a href="mailto:samcompsc10@gmail.com">samcompsc10@gmail.com</a><br>
+    NPS INR, Indiranagar<br>
+    Bangalore, KA 560038
+  </div>
+  <div class="column">
+    <strong>Policy</strong><br>
+    <a href="#">Privacy Policy</a><br>
+    <a href="#">Accessibility Statement</a><br>
+    <a href="#">Terms & Conditions</a><br>
+  </div>
+  <div class="column">
+    © 2025 The Booknook<br>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | The BookNook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: url('https://i.pinimg.com/736x/e2/d7/08/e2d708b741d56cf1811cf0c0176bdc3a.jpg') center center no-repeat fixed;
+  background-size: 100vw auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.15);
+      z-index: -1;
+    }
+
+    .message-box {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      color: #4a2c2a;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .btn-group {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    a.button {
+  padding: 0.75rem 1.5rem;
+  background: #f2e9f7; /* light purple */
+  color: #000;         /* black text */
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid #d6c5e0;
+  transition: background 0.3s ease;
+}
+
+a.button:hover {
+  background: #e0d3ea; /* slightly darker on hover */
+}
+
+  </style>
+</head>
+<body>
+  <div class="message-box">
+    <h1>Thank You!</h1>
+    <p>Your message has been sent to The BookNook. We'll get back to you soon 📚</p>
+    <div class="btn-group">
+      <a href="contact-NPS53.html" class="button">Submit Another Message</a>
+      <a href="thebooknook.html" class="button">Return to Home</a>
+    </div>
+  </div>
+</body>
+</html>
