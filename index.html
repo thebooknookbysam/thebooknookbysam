@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Booknook by SAM </title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      background: #fff;
+    }
+    header {
+  background: #e5eaff;
+  padding: 20px 0;
+  border-bottom: 2px solid #341539;
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+header img {
+  position: absolute;
+  left: 20px;
+  height: 65px;
+}
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: centre;
+      gap: 20px;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 10px;
+    }
+    nav a:hover {
+      color: #0077cc;
+    }
+    .hero {
+      background: url('home2.jpg') center/cover no-repeat;
+      height: 60vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+      font-family: 'Lora', serif;
+      font-size: 2.5rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      margin-top: 20px;
+      background: #0077cc;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .features {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .features h2 {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .features p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+    footer {
+      background: #e5eaff;
+      color: #555;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    footer .column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+    footer a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media(min-width: 600px) {
+  nav {background: #e5eaff;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #e0d3ea;
+  padding: 10px 0;
+  }
+}
+  @media (max-width: 768px) {
+    #about {
+      flex-direction: column;
+      padding: 40px 10px;
+    }
+
+    #about img, #about div {
+      max-width: 90%;
+    }
+
+    #about h2 {
+      font-size: 1.6rem;
+    }
+
+    #about p {
+      font-size: 1rem;
+    }
+  }
+
+      }
+      .hero {
+        font-size: 3rem;
+      }
+      .features p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="thebooknook.html">
+  <img src="logo.png" alt="The BookNook Logo" style="height: 90px;" align="left">
+</a>
+    <div class="header-inner" style="font-size: 60px;" align="centre">The BookNook </div>
+  
+</header>
+	
+  <nav>
+    <a href="thebooknook.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore.html">Pick your book</a>
+    <a href="ourcollection.html">Our Collection</a>
+    <a href="contact-NPS53.html">Contact</a>
+  </nav>
+	
+  <section class="hero" style="background-image: url('home1.webp'); background-size: cover; background-position: center; height: 70vh; color: white;">
+  <div>
+    From our shelf to yours <br>
+    <center><a href="explore.html" class="btn-primary" style="
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: #e5eaff;
+  color: #576bbb;
+  border: none;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+">Enter Now</a>
+  </div>
+</section>
+<section id="about" style="background-color: #e5eaff; display: flex; align-items: center; justify-content: center; padding: 60px 20px; flex-wrap: wrap;">
+  <img src="bookillustration home.avif" alt="Book illustration" style="max-width: 600px; max-height: 300px; object-fit: cover; width: 100%; border-radius: 10px; margin: 20px;">
+  <div style="max-width: 600px; text-align: left; margin: 20px;">
+    <h2 style="font-family: 'Lora', serif; font-size: 2rem; margin-bottom: 20px;">What can we do for you?</h2>
+    <p style="font-family: 'Montserrat', sans-serif; line-height: 1.6; font-size: 1.1rem;">
+      We help you find books that match your interests, age, and reading style. Explore our full library, get tailored suggestions, and discover new genres and authors. Whether you're looking for something light, deep, or somewhere in between, we're here to guide you to the right shelf.
+    </p>
+  </div>
+</section>
+</section>
+
+  <footer>
+    <div class="column">
+      <strong>Contact Us</strong><br>
+      123‑456‑7890<br>
+      <a href="mailto:samcompsc10@gmail.com">samcompsc10@gmail.com</a><br>
+      NPS INR, Indiranagar<br>
+      Bangalore, KA 560038
+    </div>
+    <div class="column">
+      <strong>Policy</strong><br>
+      <a href="#">Privacy Policy</a><br>
+      <a href="#">Accessibility Statement</a><br>
+      <a href="#">Terms & Conditions</a><br>
+    </div>
+    <div class="column">
+      © 2025 The Booknook<br>
+    </div>
+  </footer>
+
+</body>
+</html>
