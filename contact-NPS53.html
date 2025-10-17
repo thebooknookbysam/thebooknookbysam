@@ -169,16 +169,18 @@ header img {
 
   <h1 style="color: #f5f5f5;"> Contact The BookNook</h1>
 
-  <form action="https://formsubmit.co/samcompsc10@gmail.com" method="POST">
+<form action="https://formsubmit.co/samcompsc10@gmail.com" method="POST">
   <input type="text" name="name" placeholder="Your name" required />
   <input type="email" name="email" placeholder="Your email" required />
   <textarea name="message" rows="5" placeholder="Your message" required></textarea>
 
   <!-- Optional hidden fields -->
   <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+  <!-- Redirect to thank you page after submission -->
+  <input type="hidden" name="_next" value="https://thebooknookbysam.github.io/thebooknookbysam/thanksforthemsg.html">
 
-  <button type="submit" <a href="thanksforthemsg.html"></a> Send</button> 
+  <!-- Fixed submit button -->
+  <button type="submit">Send</button>
 </form>
 
 
@@ -204,3 +206,4 @@ header img {
 </body>
 
 </html>
+
